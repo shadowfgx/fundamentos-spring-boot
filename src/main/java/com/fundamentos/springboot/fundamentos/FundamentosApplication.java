@@ -64,6 +64,10 @@ public class FundamentosApplication implements CommandLineRunner {
 		userRepository.findAndSort("user", Sort.by("id").descending())
 				.stream()
 				.forEach(user -> LOGGER.info("Usuario con metodo sort" +user));
+
+		userRepository.findByName("Fernando")
+				.stream()
+				.forEach(user -> LOGGER.info("Usuario con query method"+ user));
 	}
 
 	private void saveUsersInDataBase() {
